@@ -79,12 +79,9 @@ function App() {
       <section className="content-section bg-off-white text-center">
         <FadeInSection>
           <div className="font-script">About Us</div>
-          <h2 className="section-title">那时的我们</h2>
-          <p className="section-text">
-            还不认识彼此，<br />
-            甚至不知道，<br />
-            在遥远的时空里，<br />
-            有一个人正穿越人海，朝自己走来。
+          <p className="section-text mt-2">
+            好久不见<br />
+            不知你们是否还记得下面的两个小可爱
           </p>
         </FadeInSection>
 
@@ -105,8 +102,11 @@ function App() {
 
         <FadeInSection delay={0.2}>
           <p className="section-text mt-spacing">
-            好久不见<br />
-            不知你们是否还记得上面的两个小可爱
+            那时的我们，<br />
+            还不认识彼此，<br />
+            甚至不知道，<br />
+            在遥远的时空里，<br />
+            有一个人正穿越人海，朝自己走来。
           </p>
         </FadeInSection>
       </section>
