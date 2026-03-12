@@ -102,6 +102,22 @@
   font-weight: 300;
   text-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
+.quote-mark {
+  font-family: var(--font-serif-en);
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.45);
+  vertical-align: middle;
+  line-height: 0;
+  position: relative;
+}
+.quote-mark.left {
+  top: 15px;
+  margin-right: 0.2rem;
+}
+.quote-mark.right {
+  top: 15px;
+  margin-left: 0.2rem;
+}
 .decoration-tiny {
   width: 40px;
   height: auto;

@@ -4,7 +4,7 @@ import './App.css';
 
 const CoverTransition = ({ isOpened, onOpen }) => {
   return (
-    <motion.div 
+    <motion.div
       className="cover-overlay"
       initial={false}
       animate={isOpened ? "opened" : "closed"}
@@ -13,17 +13,17 @@ const CoverTransition = ({ isOpened, onOpen }) => {
       onWheel={(e) => { if (e.deltaY > 10 || e.deltaY < -10) onOpen(); }}
       onClick={onOpen}
     >
-      <motion.div 
+      <motion.div
         className="cover-half top"
         variants={{ closed: { y: "0%" }, opened: { y: "-100%" } }}
         transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
       />
-      <motion.div 
+      <motion.div
         className="cover-half bottom"
         variants={{ closed: { y: "0%" }, opened: { y: "100%" } }}
         transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
       />
-      <motion.div 
+      <motion.div
         className="cover-content"
         style={{ x: "-50%", y: "-50%" }}
         variants={{ closed: { opacity: 1, scale: 1 }, opened: { opacity: 0, scale: 0.8, pointerEvents: 'none' } }}
@@ -77,9 +77,9 @@ function App() {
     }
     return timeLeft;
   };
-  
+
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
@@ -93,7 +93,7 @@ function App() {
 
       {/* 1. Hero Section */}
       <section className="hero-section">
-        <motion.div 
+        <motion.div
           className="hero-image-container"
           style={{ scale: heroImageScale }}
           initial={{ opacity: 0 }}
@@ -103,8 +103,8 @@ function App() {
           <img src="/assets/main_photo_beginning.jpg" alt="Wedding Beginning" className="hero-image" />
           <div className="hero-overlay"></div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="hero-text-overlay"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -113,9 +113,13 @@ function App() {
           <div className="font-script hero-script">Invitation</div>
           <p className="hero-date">2026 / 04 / 25</p>
           <p className="hero-names">Zhaodong & Minyan</p>
-          
+
           <div className="hero-quote-box">
-            <h1 className="hero-quote mt-spacing">所有的相遇<br />都是久别重逢</h1>
+            <h1 className="hero-quote mt-spacing">
+              <span className="quote-mark left">“</span>
+              所有的相遇<br />都是久别重逢
+              <span className="quote-mark right">”</span>
+            </h1>
             <img src="/assets/decoration_line2.png" alt="Decor" className="decoration-tiny mx-auto mt-2" />
           </div>
         </motion.div>
@@ -148,11 +152,11 @@ function App() {
 
         <FadeInSection delay={0.2}>
           <p className="section-text mt-spacing">
-            那时的我们，<br />
-            还不认识彼此，<br />
-            甚至不知道，<br />
-            在遥远的时空里，<br />
-            有一个人正穿越人海，朝自己走来。
+            那时的我们<br />
+            还不认识彼此<br />
+            甚至不知道<br />
+            在遥远的时空里<br />
+            有一个人正穿越人海，朝自己走来
           </p>
         </FadeInSection>
       </section>
@@ -166,18 +170,18 @@ function App() {
       {/* 3. The Journey Section: Our Story */}
       <section className="content-section text-center" style={{ paddingTop: '0', paddingBottom: '0', minHeight: 'auto' }}>
         <FadeInSection>
-          
+
           <img src="/assets/cartoon_character.png" alt="Journey" className="cartoon-img mx-auto" />
-          
+
           <p className="section-text mt-spacing">
-            从此,<br />
-            两条在各自相限里奔跑的射线。<br />
-            不再是孤独的平行，<br />
-            而是交织成一个完整的圆。<br />
-            这一路成长的轨迹，<br />
-            每一段都刻着你们见证的印记。
+            从此<br />
+            两条在各自时空里奔跑的射线<br />
+            不再是孤独的平行<br />
+            而是交织成一个完整的圆<br />
+            这一路成长的轨迹<br />
+            每一段都刻着你们见证的印记
           </p>
-          
+
           <img src="/assets/decoration_line2.png" alt="Decor" className="decoration-tiny mx-auto" style={{ filter: 'none', marginTop: '2.5rem' }} />
         </FadeInSection>
       </section>
@@ -193,15 +197,15 @@ function App() {
         <FadeInSection>
           <div className="font-script">Time</div>
           <h2 className="section-title">时间安排</h2>
-          <p className="section-text" style={{letterSpacing: '0.05em'}}>
+          <p className="section-text" style={{ letterSpacing: '0.05em' }}>
             2026年4月25日 星期六<br />
             农历丙午年三月初九 12:08
           </p>
           <div className="countdown-container">
-            <div className="countdown-box"><span className="countdown-num">{String(timeLeft.days).padStart(2,'0')}</span><span className="countdown-label">天</span></div>
-            <div className="countdown-box"><span className="countdown-num">{String(timeLeft.hours).padStart(2,'0')}</span><span className="countdown-label">时</span></div>
-            <div className="countdown-box"><span className="countdown-num">{String(timeLeft.minutes).padStart(2,'0')}</span><span className="countdown-label">分</span></div>
-            <div className="countdown-box"><span className="countdown-num">{String(timeLeft.seconds).padStart(2,'0')}</span><span className="countdown-label">秒</span></div>
+            <div className="countdown-box"><span className="countdown-num">{String(timeLeft.days).padStart(2, '0')}</span><span className="countdown-label">天</span></div>
+            <div className="countdown-box"><span className="countdown-num">{String(timeLeft.hours).padStart(2, '0')}</span><span className="countdown-label">时</span></div>
+            <div className="countdown-box"><span className="countdown-num">{String(timeLeft.minutes).padStart(2, '0')}</span><span className="countdown-label">分</span></div>
+            <div className="countdown-box"><span className="countdown-num">{String(timeLeft.seconds).padStart(2, '0')}</span><span className="countdown-label">秒</span></div>
           </div>
         </FadeInSection>
 
@@ -218,7 +222,7 @@ function App() {
             <div className="timeline-item">
               <span className="timeline-time">17:00</span><span className="timeline-en">Banquet</span><span className="timeline-cn">晚宴</span>
             </div>
-            <div className="timeline-item" style={{borderBottom: 'none'}}>
+            <div className="timeline-item" style={{ borderBottom: 'none' }}>
               <span className="timeline-time">20:08</span><span className="timeline-en">After Party</span><span className="timeline-cn">派对</span>
             </div>
           </div>
@@ -238,19 +242,19 @@ function App() {
             期待与您留下美好回忆
           </p>
           <div className="swatch-container">
-            <div className="swatch" style={{backgroundColor: '#FFFFFF'}}></div>
-            <div className="swatch" style={{backgroundColor: '#111111'}}></div>
-            <div className="swatch" style={{backgroundColor: '#F5F5DC'}}></div>
-            <div className="swatch" style={{backgroundColor: '#E2E8D3'}}></div>
-            <div className="swatch" style={{backgroundColor: '#E3C1A1'}}></div>
-            <div className="swatch" style={{backgroundColor: '#A8805F'}}></div>
+            <div className="swatch" style={{ backgroundColor: '#FFFFFF' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#111111' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#F5F5DC' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#E2E8D3' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#E3C1A1' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#A8805F' }}></div>
           </div>
         </FadeInSection>
-        
+
         <FadeInSection delay={0.2}>
           <div className="font-script mt-spacing">Location</div>
           <h2 className="section-title">导航地址</h2>
-          <p className="section-text" style={{marginBottom: '1.5rem'}}>
+          <p className="section-text" style={{ marginBottom: '1.5rem' }}>
             西安香格里拉大酒店
           </p>
           <a href="https://uri.amap.com/search?keyword=西安香格里拉酒店" target="_blank" rel="noopener noreferrer" className="navigation-container">
@@ -273,11 +277,11 @@ function App() {
           <form className="rsvp-form mx-auto" onSubmit={(e) => { e.preventDefault(); alert("您的回执已提交，期待您的到来！"); }}>
             <input type="text" className="rsvp-input" placeholder="姓名 / Name" required />
             <select className="rsvp-input" required defaultValue="">
-               <option value="" disabled>出席人数 / Attendance</option>
-               <option value="1">1 人</option>
-               <option value="2">2 人</option>
-               <option value="3">3 人</option>
-               <option value="4">4 人以上</option>
+              <option value="" disabled>出席人数 / Attendance</option>
+              <option value="1">1 人</option>
+              <option value="2">2 人</option>
+              <option value="3">3 人</option>
+              <option value="4">4 人以上</option>
             </select>
             <button type="submit" className="rsvp-btn">提 交</button>
           </form>
@@ -299,7 +303,7 @@ function App() {
 
       {/* Full width bottom image placed at the very end of app layout */}
       <img src="/assets/decoration_bottom.jpg" alt="Decoration Bottom" className="decoration-bottom" />
-      
+
     </div>
   );
 }
