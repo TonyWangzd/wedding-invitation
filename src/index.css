@@ -1,0 +1,47 @@
+:root {
+  --color-wine: #722F37;
+  --color-wine-light: #8B3A43;
+  --color-white: #FFFFFF;
+  --color-off-white: #FAFAFA;
+  --color-text-dark: #2A2A2A;
+  --color-text-light: #555555;
+  --color-border: #EAEAEA;
+  
+  --font-serif-cn: "Noto Serif SC", "Source Han Serif SC", "Source Han Serif CN", serif;
+  --font-serif-en: "Cormorant Garamond", serif;
+  --font-script: "Great Vibes", cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white);
+  color: var(--color-text-dark);
+  font-family: var(--font-serif-en), var(--font-serif-cn);
+  font-weight: 300;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-wine);
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
