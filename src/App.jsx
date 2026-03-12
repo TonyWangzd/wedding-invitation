@@ -258,9 +258,7 @@ function App() {
             <img src="/assets/navigation.jpg" alt="Map Navigation to Shangri-La Xi'an" className="nav-img-large no-shadow mx-auto" />
             <div className="nav-text-container">
               <span className="nav-hint-text">点击导航至高德地图</span>
-              <svg className="click-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M10.8,2.2C10.5,2.1,10.2,2,10,2c-1.1,0-2,0.9-2,2v5.6L7.1,8.3c-0.2-0.1-0.4-0.3-0.6-0.3C5.5,8,4.7,8.7,4.7,9.7 c0,0.5,0.2,1,0.6,1.4l5.3,5.3c1.4,1.4,3.2,2.2,5.1,2.2h1c2.1,0,3.9-1.5,4.3-3.6l0.6-3.8c0.2-1.3-0.7-2.6-2-2.8 c-0.2,0-0.4,0-0.6,0V6c0-1.1-0.9-2-2-2c-0.3,0-0.6,0.1-0.9,0.2V3.5c0-1.1-0.9-2-2-2c-0.4,0-0.7,0.1-0.9,0.3V2z" />
-              </svg>
+              <img src="/assets/click.jpg" alt="Click" className="click-icon" style={{ width: '24px', height: 'auto', mixBlendMode: 'multiply' }} />
             </div>
           </a>
         </FadeInSection>
