@@ -250,12 +250,12 @@ function App() {
 
         <FadeInSection delay={0.2}>
           <div className="font-script mt-spacing">Location</div>
-          <h2 className="section-title">导航地址</h2>
+          <h2 className="section-title">婚礼地址</h2>
           <p className="section-text" style={{ marginBottom: '1.5rem' }}>
-            西安香格里拉大酒店
+            西安香格里拉大酒店・长安厅
           </p>
           <a href="https://uri.amap.com/search?keyword=西安香格里拉酒店" target="_blank" rel="noopener noreferrer" className="navigation-container">
-            <img src="/assets/navigation.jpg" alt="Map Navigation to Shangri-La Xi'an" className="nav-img-large no-shadow mx-auto" />
+            <img src="/assets/navigation.jpg" alt="Map Navigation to Shangri-La Xi'an" className="no-shadow mx-auto" style={{ width: '50%', minWidth: '150px', borderRadius: '4px', marginTop: '1rem' }} />
             <div className="nav-text-container">
               <span className="nav-hint-text">点击导航至高德地图</span>
               <img src="/assets/click.jpg" alt="Click" className="click-icon" style={{ width: '24px', height: 'auto', mixBlendMode: 'multiply' }} />
