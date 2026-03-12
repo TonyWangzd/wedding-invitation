@@ -168,9 +168,9 @@ function App() {
       <section className="content-section text-center" style={{ paddingTop: '0', paddingBottom: '0', minHeight: 'auto' }}>
         <FadeInSection>
 
-          <img src="/assets/cartoon_character.png" alt="Journey" className="cartoon-img mx-auto" />
+          <img src="/assets/rotation_pic.jpg" alt="Journey" className="mx-auto" style={{ maxWidth: '350px', width: '80%', height: 'auto', borderRadius: '8px', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }} />
 
-          <p className="section-text mt-spacing">
+          <p className="section-text" style={{ marginTop: '2.5rem' }}>
             从此<br />
             两条在各自时空里奔跑的射线<br />
             不再是孤独的平行<br />
