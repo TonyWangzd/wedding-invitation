@@ -17,7 +17,6 @@ const FadeInSection = ({ children, delay = 0, yOffset = 30 }) => (
 function App() {
   const { scrollYProgress } = useScroll();
   const heroImageScale = useTransform(scrollYProgress, [0, 0.2], [1.05, 1.0]);
-  const heroImageY = useTransform(scrollYProgress, [0, 0.2], ["0%", "15%"]);
 
   const calculateTimeLeft = () => {
     const difference = +new Date(`2026-04-25T12:08:00`) - +new Date();
@@ -50,7 +49,7 @@ function App() {
       <section className="hero-section">
         <motion.div 
           className="hero-image-container"
-          style={{ scale: heroImageScale, y: heroImageY }}
+          style={{ scale: heroImageScale }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
