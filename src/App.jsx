@@ -287,8 +287,12 @@ function App() {
           </form>
         </FadeInSection>
 
-        <FadeInSection delay={0.2} yOffset={20}>
-          <div className="font-script mt-spacing">Tips</div>
+        <FadeInSection delay={0.2}>
+          <div className="css-divider mx-auto"></div>
+        </FadeInSection>
+
+        <FadeInSection delay={0.3} yOffset={20}>
+          <div className="font-script">Tips</div>
           <p className="section-text text-sm">
             如果您身在不同城市<br />
             或是繁忙的工作脱不开身无法到达婚礼现场<br />
