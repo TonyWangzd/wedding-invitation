@@ -287,14 +287,8 @@ function App() {
           </form>
         </FadeInSection>
 
-        <FadeInSection delay={0.2}>
-          <div className="divider-container" style={{ padding: '3.5rem 0 2rem' }}>
-            <img src="/assets/decoration_line2.png" alt="Decoration" className="decoration-tiny mx-auto" style={{ filter: 'none', opacity: 0.8 }} />
-          </div>
-        </FadeInSection>
-
-        <FadeInSection delay={0.3} yOffset={20}>
-          <div className="font-script">Tips</div>
+        <FadeInSection delay={0.2} yOffset={20}>
+          <div className="font-script mt-spacing">Tips</div>
           <p className="section-text text-sm">
             如果您身在不同城市<br />
             或是繁忙的工作脱不开身无法到达婚礼现场<br />
