@@ -112,14 +112,11 @@ function App() {
         >
           <div className="font-script hero-script">Invitation</div>
           <p className="hero-date">2026 / 04 / 25</p>
+          <p className="hero-names">我们结婚啦</p>
           <p className="hero-names">Zhaodong & Minyan</p>
 
           <div className="hero-quote-box">
-            <h1 className="hero-quote mt-spacing">
-              <span className="quote-mark left">“</span>
-              所有的相遇<br />都是久别重逢
-              <span className="quote-mark right">”</span>
-            </h1>
+            <h1 className="hero-quote mt-spacing">所有的相遇<br />都是久别重逢</h1>
             <img src="/assets/decoration_line2.png" alt="Decor" className="decoration-tiny mx-auto mt-2" />
           </div>
         </motion.div>
