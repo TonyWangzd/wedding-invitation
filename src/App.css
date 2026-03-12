@@ -335,3 +335,26 @@
   .countdown-num { font-size: 2.2rem; }
   .nav-img-large { max-width: 800px; }
 }
+
+/* Cover Transition */
+.cover-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; display: flex; flex-direction: column; }
+.cover-half { width: 100%; height: 50.1vh; background-color: #0d0d0d; position: absolute; left: 0; will-change: transform; }
+.cover-half.top { top: 0; transform-origin: top; }
+.cover-half.bottom { bottom: 0; transform-origin: bottom; }
+.cover-content { position: absolute; top: 50%; left: 50%; z-index: 1002; display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.cover-circle-wrapper { display: flex; justify-content: center; align-items: center; }
+.cover-circle { width: 160px; height: 160px; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 2px solid rgba(255,255,255,0.08); transition: transform 0.3s ease; }
+.cover-circle:hover { transform: scale(1.05); }
+.cover-circle img { width: 100%; height: 100%; object-fit: cover; }
+.scroll-indicator { margin-top: 2rem; display: flex; flex-direction: column; align-items: center; }
+.scroll-text { color: rgba(255,255,255,0.6); font-family: var(--font-serif-cn); font-size: 0.95rem; letter-spacing: 0.2em; margin-bottom: 1rem; }
+.scroll-line { width: 1px; height: 50px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; }
+.scroll-line::after { content: ''; position: absolute; top: 0; left: 0; width: 1px; height: 100%; background: rgba(255,255,255,0.8); animation: scrollDownLine 2s cubic-bezier(0.15, 0.41, 0.69, 0.94) infinite; }
+@keyframes scrollDownLine { 0% { transform: translateY(-100%); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100%); opacity: 0; } }
+
+/* Nav Specific Updates */
+.no-shadow { box-shadow: none !important; border-radius: 4px !important; }
+.nav-text-container { display: flex; align-items: center; justify-content: center; margin-top: 1rem; color: var(--color-text-light); opacity: 0.8; }
+.nav-hint-text { font-size: 0.95rem; font-family: var(--font-serif-cn); letter-spacing: 0.1em; }
+.click-icon { margin-left: 6px; opacity: 0.8; animation: floatClick 2s ease-in-out infinite; }
+@keyframes floatClick { 0% { transform: translateY(0); } 50% { transform: translateY(-3px); } 100% { transform: translateY(0); } }

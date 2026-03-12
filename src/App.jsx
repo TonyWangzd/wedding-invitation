@@ -2,6 +2,48 @@ import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './App.css';
 
+const CoverTransition = ({ isOpened, onOpen }) => {
+  return (
+    <motion.div 
+      className="cover-overlay"
+      initial={false}
+      animate={isOpened ? "opened" : "closed"}
+      style={{ pointerEvents: isOpened ? 'none' : 'auto' }}
+      onPan={(e, info) => { if (Math.abs(info.offset.y) > 20) onOpen(); }}
+      onWheel={(e) => { if (e.deltaY > 10 || e.deltaY < -10) onOpen(); }}
+      onClick={onOpen}
+    >
+      <motion.div 
+        className="cover-half top"
+        variants={{ closed: { y: "0%" }, opened: { y: "-100%" } }}
+        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+      />
+      <motion.div 
+        className="cover-half bottom"
+        variants={{ closed: { y: "0%" }, opened: { y: "100%" } }}
+        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+      />
+      <motion.div 
+        className="cover-content"
+        style={{ x: "-50%", y: "-50%" }}
+        variants={{ closed: { opacity: 1, scale: 1 }, opened: { opacity: 0, scale: 0.8, pointerEvents: 'none' } }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+      >
+        <div className="cover-circle-wrapper">
+          <div className="cover-circle">
+            <img src="/assets/cover.jpg" alt="Cover Circle" />
+          </div>
+        </div>
+        <div className="scroll-indicator">
+          <span className="scroll-text">滑动开启</span>
+          <span style={{ color: 'rgba(255,255,255,0.85)', fontFamily: 'var(--font-serif-cn)', fontSize: '1.2rem', letterSpacing: '0.6em', marginBottom: '1.5rem', marginTop: '-0.5rem', marginLeft: '0.6em' }}>邀请函</span>
+          <div className="scroll-line"></div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const FadeInSection = ({ children, delay = 0, yOffset = 30 }) => (
   <motion.div
     initial={{ opacity: 0, y: yOffset }}
@@ -15,6 +57,8 @@ const FadeInSection = ({ children, delay = 0, yOffset = 30 }) => (
 );
 
 function App() {
+  const [isCoverOpened, setIsCoverOpened] = useState(false);
+
   const { scrollYProgress } = useScroll();
   const heroImageScale = useTransform(scrollYProgress, [0, 0.2], [1.05, 1.0]);
 
@@ -44,7 +88,9 @@ function App() {
   });
 
   return (
-    <div className="app-container">
+    <div className="app-container" style={{ height: isCoverOpened ? 'auto' : '100vh', overflow: isCoverOpened ? 'visible' : 'hidden' }}>
+      <CoverTransition isOpened={isCoverOpened} onOpen={() => setIsCoverOpened(true)} />
+
       {/* 1. Hero Section */}
       <section className="hero-section">
         <motion.div 
@@ -121,7 +167,6 @@ function App() {
       <section className="content-section text-center">
         <FadeInSection>
           <div className="font-script">Our Story</div>
-          <h2 className="section-title">交织成圆</h2>
           
           <img src="/assets/cartoon_character.png" alt="Journey" className="cartoon-img mx-auto mt-spacing" />
           
@@ -208,8 +253,13 @@ function App() {
             西安香格里拉大酒店
           </p>
           <a href="https://uri.amap.com/search?keyword=西安香格里拉酒店" target="_blank" rel="noopener noreferrer" className="navigation-container">
-            <img src="/assets/navigation.jpg" alt="Map Navigation to Shangri-La Xi'an" className="nav-img-large mx-auto" />
-            <p className="mt-2 text-wine" style={{fontSize: '0.9rem', opacity: 0.8}}>( 点击图片导航至高德地图 )</p>
+            <img src="/assets/navigation.jpg" alt="Map Navigation to Shangri-La Xi'an" className="nav-img-large no-shadow mx-auto" />
+            <div className="nav-text-container">
+              <span className="nav-hint-text">点击导航至高德地图</span>
+              <svg className="click-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10.8,2.2C10.5,2.1,10.2,2,10,2c-1.1,0-2,0.9-2,2v5.6L7.1,8.3c-0.2-0.1-0.4-0.3-0.6-0.3C5.5,8,4.7,8.7,4.7,9.7 c0,0.5,0.2,1,0.6,1.4l5.3,5.3c1.4,1.4,3.2,2.2,5.1,2.2h1c2.1,0,3.9-1.5,4.3-3.6l0.6-3.8c0.2-1.3-0.7-2.6-2-2.8 c-0.2,0-0.4,0-0.6,0V6c0-1.1-0.9-2-2-2c-0.3,0-0.6,0.1-0.9,0.2V3.5c0-1.1-0.9-2-2-2c-0.4,0-0.7,0.1-0.9,0.3V2z" />
+              </svg>
+            </div>
           </a>
         </FadeInSection>
       </section>
