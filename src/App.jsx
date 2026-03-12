@@ -265,7 +265,7 @@ function App() {
       </section>
 
       {/* 6. RSVP & Tips */}
-      <section className="content-section bg-off-white text-center">
+      <section className="content-section text-center">
         <FadeInSection>
           <div className="font-script">RSVP</div>
           <h2 className="section-title">宾客回执</h2>
@@ -277,6 +277,11 @@ function App() {
               <option value="2">2 人</option>
               <option value="3">3 人</option>
               <option value="4">4 人以上</option>
+            </select>
+            <select className="rsvp-input" required defaultValue="">
+              <option value="" disabled>住宿安排 / Accommodation</option>
+              <option value="yes">需代为安排下榻之所</option>
+              <option value="no">无需安排，心领美意</option>
             </select>
             <button type="submit" className="rsvp-btn">提 交</button>
           </form>
