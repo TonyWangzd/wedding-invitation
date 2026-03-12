@@ -157,18 +157,17 @@ function App() {
         </FadeInSection>
       </section>
 
-      <div className="divider-container">
+      <div className="divider-container" style={{ paddingBottom: '1rem' }}>
         <FadeInSection>
           <img src="/assets/decoration_line.png" alt="Decoration" className="decoration-small mx-auto" />
         </FadeInSection>
       </div>
 
       {/* 3. The Journey Section: Our Story */}
-      <section className="content-section text-center">
+      <section className="content-section text-center" style={{ paddingTop: '0', paddingBottom: '0', minHeight: 'auto' }}>
         <FadeInSection>
-          <div className="font-script">Our Story</div>
           
-          <img src="/assets/cartoon_character.png" alt="Journey" className="cartoon-img mx-auto mt-spacing" />
+          <img src="/assets/cartoon_character.png" alt="Journey" className="cartoon-img mx-auto" />
           
           <p className="section-text mt-spacing">
             从此,<br />
@@ -178,10 +177,12 @@ function App() {
             这一路成长的轨迹，<br />
             每一段都刻着你们见证的印记。
           </p>
+          
+          <img src="/assets/decoration_line2.png" alt="Decor" className="decoration-tiny mx-auto" style={{ filter: 'none', marginTop: '2.5rem' }} />
         </FadeInSection>
       </section>
 
-      <div className="divider-container">
+      <div className="divider-container" style={{ paddingTop: '2.5rem' }}>
         <FadeInSection>
           <img src="/assets/decoration_line.png" alt="Decoration" className="decoration-small mx-auto" style={{ transform: 'rotate(180deg)' }} />
         </FadeInSection>
