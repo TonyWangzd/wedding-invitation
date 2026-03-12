@@ -196,7 +196,7 @@ function App() {
           <h2 className="section-title">时间安排</h2>
           <p className="section-text" style={{ letterSpacing: '0.05em' }}>
             2026年4月25日 星期六<br />
-            农历丙午年三月初九 12:08
+            农历丙午年三月初九
           </p>
           <div className="countdown-container">
             <div className="countdown-box"><span className="countdown-num">{String(timeLeft.days).padStart(2, '0')}</span><span className="countdown-label">天</span></div>
@@ -295,7 +295,7 @@ function App() {
             没有关系，我们已收到您的祝福<br />
             祝您万事胜意<br /><br />
             如果您有时间<br />
-            请带着您的好心情和好胃口，来参加我们的婚礼吧<br /><br />
+            请带着您的好心情和好胃口，来见证我们的幸福吧<br /><br />
             <strong>婚礼见</strong>
           </p>
         </FadeInSection>
