@@ -65,7 +65,7 @@
   z-index: 3;
   text-align: center;
   padding: 0 2rem;
-  margin-top: 15vh;
+  margin-top: 30vh;
 }
 .hero-script {
   font-size: 4rem;
@@ -95,12 +95,13 @@
   align-items: center;
 }
 .hero-quote {
-  font-size: 1.6rem;
-  letter-spacing: 0.2em;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
   line-height: 1.8;
   color: var(--color-white);
   font-weight: 300;
   text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  font-family: var(--font-serif-en);
 }
 .quote-mark {
   font-family: var(--font-serif-en);
@@ -363,7 +364,7 @@
 }
 
 @media (min-width: 768px) {
-  .hero-quote { font-size: 2.2rem; }
+  .hero-quote { font-size: 1.4rem; }
   .section-text { font-size: 1.25rem; }
   .font-script { font-size: 4.5rem; }
   .portrait-img { width: 140px; height: 140px; }

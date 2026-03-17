@@ -35,7 +35,7 @@ const CoverTransition = ({ isOpened, onOpen }) => {
           </div>
         </div>
         <div className="scroll-indicator">
-          <span className="scroll-text">滑动开启</span>
+          <span className="scroll-text">开启</span>
           <span style={{ color: 'rgba(255,255,255,0.85)', fontFamily: 'var(--font-serif-cn)', fontSize: '1.2rem', letterSpacing: '0.6em', marginBottom: '1.5rem', marginTop: '-0.5rem', marginLeft: '0.6em' }}>邀请函</span>
           <div className="scroll-line"></div>
         </div>
@@ -128,7 +128,8 @@ function App() {
           <div className="font-script">About Us</div>
           <p className="section-text mt-2">
             好久不见<br />
-            不知你们是否还记得下面的两个小可爱
+            不知你们是否还记得<br />
+            下面的两个小可爱
           </p>
         </FadeInSection>
 
@@ -149,7 +150,7 @@ function App() {
 
         <FadeInSection delay={0.2}>
           <p className="section-text mt-spacing">
-            那时的我们<br />
+            <br />那时的我们<br />
             还不认识彼此<br />
             甚至不知道<br />
             在遥远的时空里<br />
@@ -172,7 +173,7 @@ function App() {
 
           <p className="section-text" style={{ marginTop: '2.5rem' }}>
             从此<br />
-            两条在各自时空里奔跑的射线<br />
+            两条在各自时空里奔跑的线<br />
             不再是孤独的平行<br />
             而是交织成一个完整的圆<br />
             这一路成长的轨迹<br />
@@ -192,7 +193,7 @@ function App() {
       {/* 4. Time & Timeline Section */}
       <section className="content-section bg-off-white text-center">
         <FadeInSection>
-          <div className="font-script">Time</div>
+          <div className="font-script">Our Day</div>
           <h2 className="section-title">时间安排</h2>
           <p className="section-text" style={{ letterSpacing: '0.05em' }}>
             2026年4月25日 星期六<br />
@@ -211,16 +212,13 @@ function App() {
           <h2 className="section-title">婚礼流程</h2>
           <div className="timeline">
             <div className="timeline-item">
-              <span className="timeline-time">11:30</span><span className="timeline-en">Welcome Reception</span><span className="timeline-cn">迎宾</span>
+              <span className="timeline-time">10:30</span><span className="timeline-cn" style={{ flex: 1, textAlign: 'left', paddingLeft: '1.5rem', display: 'flex', alignItems: 'center', gap: '8px' }}>迎宾 <span className="timeline-en" style={{ padding: 0, flex: 'none', color: 'var(--color-text-light)' }}>Reception</span></span>
             </div>
             <div className="timeline-item">
-              <span className="timeline-time">12:08</span><span className="timeline-en">Wedding Ceremony</span><span className="timeline-cn">仪式</span>
-            </div>
-            <div className="timeline-item">
-              <span className="timeline-time">17:00</span><span className="timeline-en">Banquet</span><span className="timeline-cn">晚宴</span>
+              <span className="timeline-time">12:00</span><span className="timeline-cn" style={{ flex: 1, textAlign: 'left', paddingLeft: '1.5rem', display: 'flex', alignItems: 'center', gap: '8px' }}>仪式 <span className="timeline-en" style={{ padding: 0, flex: 'none', color: 'var(--color-text-light)' }}>Ceremony</span></span>
             </div>
             <div className="timeline-item" style={{ borderBottom: 'none' }}>
-              <span className="timeline-time">20:08</span><span className="timeline-en">After Party</span><span className="timeline-cn">派对</span>
+              <span className="timeline-time">12:30</span><span className="timeline-cn" style={{ flex: 1, textAlign: 'left', paddingLeft: '1.5rem', display: 'flex', alignItems: 'center', gap: '8px' }}>宴会 <span className="timeline-en" style={{ padding: 0, flex: 'none', color: 'var(--color-text-light)' }}>Banquet</span></span>
             </div>
           </div>
         </FadeInSection>
@@ -239,12 +237,12 @@ function App() {
             期待与您留下美好回忆
           </p>
           <div className="swatch-container">
-            <div className="swatch" style={{ backgroundColor: '#FFFFFF' }}></div>
-            <div className="swatch" style={{ backgroundColor: '#111111' }}></div>
-            <div className="swatch" style={{ backgroundColor: '#F5F5DC' }}></div>
-            <div className="swatch" style={{ backgroundColor: '#E2E8D3' }}></div>
-            <div className="swatch" style={{ backgroundColor: '#E3C1A1' }}></div>
-            <div className="swatch" style={{ backgroundColor: '#A8805F' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#F8C8DC' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#C8A2C8' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#9CAF88' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#F5E6CC' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#7C92A6' }}></div>
+            <div className="swatch" style={{ backgroundColor: '#1A2A3A' }}></div>
           </div>
         </FadeInSection>
 
@@ -269,20 +267,55 @@ function App() {
         <FadeInSection>
           <div className="font-script">RSVP</div>
           <h2 className="section-title">宾客回执</h2>
-          <form className="rsvp-form mx-auto" onSubmit={(e) => { e.preventDefault(); alert("您的回执已提交，期待您的到来！"); }}>
-            <input type="text" className="rsvp-input" placeholder="姓名 / Name" required />
-            <select className="rsvp-input" required defaultValue="">
+          <form className="rsvp-form mx-auto" onSubmit={async (e) => {
+            e.preventDefault();
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = "提交中...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(e.target);
+            formData.append("access_key", "4f30eeed-04ad-4d7d-90cf-500b8be458a6");
+            formData.append("subject", `新婚礼回执: ${formData.get("name")}`);
+
+            try {
+              const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json"
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+              });
+
+              const result = await res.json();
+              if (result.success) {
+                alert("您的回执已成功提交，期待您的到来！");
+                e.target.reset(); // 清空表单
+              } else {
+                alert("提交失败，请稍后重试。");
+              }
+            } catch (error) {
+              alert("提交出错，请检查网络。");
+            } finally {
+              submitBtn.innerText = originalText;
+              submitBtn.disabled = false;
+            }
+          }}>
+            <input type="text" name="name" className="rsvp-input" placeholder="姓名 / Name" required />
+            <select name="attendance" className="rsvp-input" required defaultValue="">
               <option value="" disabled>出席人数 / Attendance</option>
-              <option value="1">1 人</option>
-              <option value="2">2 人</option>
-              <option value="3">3 人</option>
-              <option value="4">4 人以上</option>
+              <option value="1 人">1 人</option>
+              <option value="2 人">2 人</option>
+              <option value="3 人">3 人</option>
+              <option value="4 人以上">4 人以上</option>
             </select>
-            <select className="rsvp-input" required defaultValue="">
+            <select name="accommodation" className="rsvp-input" required defaultValue="">
               <option value="" disabled>住宿安排 / Accommodation</option>
-              <option value="yes">需代为安排下榻之所</option>
-              <option value="no">无需安排，心领美意</option>
+              <option value="需安排">需代为安排下榻之所</option>
+              <option value="无需安排">无需安排，心领美意</option>
             </select>
+            <textarea name="message" className="rsvp-input" placeholder="想对我们说的话 (选填) / Messages" style={{ height: '80px', paddingTop: '12px' }}></textarea>
             <button type="submit" className="rsvp-btn">提 交</button>
           </form>
         </FadeInSection>
